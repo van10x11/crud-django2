@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		th,td {
+			margin: 10px;
+			padding: 10px;
+		}
+
+		th {
+			background-color: orange;
+		}
+
+		td {
+			background-color: skyblue;
+		}
+	</style>
+
+</head>
+<body>
+	<h2><a href="{% url 'dashboard:index' %}">{{ title }}</a></h2>
+
+	<p><a href="{% url 'dashboard:mahasiswa-tambah' %}">Tambah Mahasiswa</a> | <a href="{% url 'dashboard:mahasiswa-pdf' %}">Export PDF</a></p>
+
+	<p>
+		<form method="get" action="{% url 'dashboard:mahasiswa-cari' %}">
+			<input type="text" name="cari" placeholder="cari data ....">
+			<button type="submit">cari</button>
+		</form>
+	</p>
+
+	{% if banyak_data %}
+		<p>Hasil : <b>{{ banyak_data }}</b></p>
+	{% endif %}
+
+	<table>
+		<tr>
+			<th>Nim</th>
+			<th>Nama</th>
+			<th>Jenis Kelamin</th>
+			<th>Alamat</th>
+			<th>Aksi</th>
+		</tr>
+
+		{% for mahasiswa in list_mahasiswa  %}
+			<tr>
+				<td><a href="{% url 'dashboard:mahasiswa-biodata' nim_mahasiswa=mahasiswa.nim %}">{{ mahasiswa.nim }}</a></td>
+				<td>{{ mahasiswa.nama }}</td>
+				<td>{{ mahasiswa.jenis_kelamin }}</td>
+				<td>{{ mahasiswa.alamat }}</td>
+				<td>
+					<a href="{% url 'dashboard:mahasiswa-ubah' nim_mahasiswa=mahasiswa.nim %}">Ubah</a> |
+					<a href="{% url 'dashboard:mahasiswa-hapus' nim_mahasiswa=mahasiswa.nim %}">Hapus</a>
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+
+	<p><a href="{% url 'logout' username_login=username %}">Logout</p>
+
+</body>
+</html>

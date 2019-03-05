@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Daftar Mahasiswa</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		h2 {
+			text-align: center;
+		}
+
+		th,td {
+			padding: 10px;
+			margin: 10px;
+		}
+
+
+
+	</style>
+</head>
+<body>
+
+	<h2>Daftar Mahasiswa</h2>
+
+		<table>
+			<tr>
+				<th>NIM</th>
+				<th>NAMA</th>
+				<th>JENIS KELAMIN</th>
+				<th>ALAMAT</th>
+			</tr>
+
+			{% for mahasiswa in list_mahasiswa  %}
+				<tr>
+					<td>{{ mahasiswa.nim }}</td>
+					<td>{{ mahasiswa.nama }}</td>
+					<td>{{ mahasiswa.jenis_kelamin }}</td>
+					<td>{{ mahasiswa.alamat }}</td>
+				</tr>
+				
+			{% endfor %}
+		</table>
+	
+
+</body>
+</html>

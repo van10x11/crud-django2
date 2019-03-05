@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+		td {
+			margin: 10px;
+			padding: 10px;
+		}
+
+	</style>
+</head>
+<body>
+
+	<h2>{{ title }}</h2>
+
+	<p><a href="{% url 'dashboard:mahasiswa-biodata-pdf' nim_mahasiswa=mahasiswa.nim %}">Export to PDF</a></p>
+
+	<table>
+		<tr>
+			<td>Nim</td>
+			<td>{{ mahasiswa.nim }}</td>
+		</tr>
+
+		<tr>
+			<td>Nama</td>
+			<td>{{ mahasiswa.nama }}</td>
+		</tr>
+
+		<tr>
+			<td>Jenis Kelamin</td>
+			<td>{{ mahasiswa.jenis_kelamin }}</td>
+		</tr>
+
+		<tr>
+			<td>TTL</td>
+			<td>{{ mahasiswa.tempat_lahir }} - {{ mahasiswa.tanggal_lahir }}</td>
+		</tr>
+
+		<tr>
+			<td>Agama</td>
+			<td>{{ mahasiswa.agama }}</td>
+		</tr>
+
+
+		<tr>
+			<td>Email</td>
+			<td>{{ mahasiswa.email }}</td>
+		</tr>
+
+
+		<tr>
+			<td>Alamat</td>
+			<td>{{ mahasiswa.alamat }}</td>
+		</tr>
+
+
+		<tr>
+			<td>Nama Ibu</td>
+			<td>{{ mahasiswa.nama_ibu }}</td>
+		</tr>
+
+
+	</table>
+
+</body>
+</html>

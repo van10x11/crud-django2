@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<center>
+		<h2>Login !!!</h2>
+
+		{% if messages %}
+			{% for message in messages %}
+
+				<p>{{ message }}</p>
+				
+			{% endfor %}
+			
+		{% endif %}
+
+		<table>
+			<form method="post">
+				{% csrf_token %}
+				<tr>
+					<td>Username</td>
+					<td><input type="text" name="username" placeholder="username"></td>
+				</tr>
+
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="password" placeholder="password"></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td><button type="submit">Login</button></td>
+				</tr>
+				
+			</form>
+
+
+		</table>
+
+	</center>
+
+</body>
+</html>
